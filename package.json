@@ -1,6 +1,6 @@
 {
   "name": "@kibibit/dev-tools",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "some useful scripts",
   "main": "index.js",
   "bin": {
