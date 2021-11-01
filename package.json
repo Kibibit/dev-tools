@@ -16,7 +16,7 @@
     "semantic-release:setup": "semantic-release-cli setup",
     "lint": "eslint -c ./.eslintrc.js \"{src,apps,libs,test}/**/*.ts\"",
     "lint:fix": "eslint -c ./.eslintrc.js \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "semantic-release": "semantic-release",
+    "semantic-release": "cross-env HUSKY=0 semantic-release",
     "test": "echo \"Error: no test specified\" && exit 1",
     "contributors:all": "cross-env HUSKY=0 node ./tools/get-all-contributors.js",
     "contributors:add": "cross-env HUSKY=0 all-contributors add",
