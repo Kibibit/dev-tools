@@ -1,5 +1,12 @@
 achievibit changelog
 
+## [1.0.1](https://github.com/Kibibit/dev-tools/compare/v1.0.0...v1.0.1) (2021-11-01)
+
+
+### Bug Fixes
+
+* **release:** add lib files ([3eaa4c1](https://github.com/Kibibit/dev-tools/commit/3eaa4c1a0f2a97c02cbdc7e7a25b782a22d48e96))
+
 # 1.0.0 (2021-11-01)
 
 
