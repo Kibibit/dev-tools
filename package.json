@@ -2,7 +2,12 @@
   "name": "@kibibit/dev-tools",
   "version": "1.0.0",
   "description": "some useful scripts",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "/lib",
+    "/src"
+  ],
   "bin": {
     "kb-prune-merged": "bin/prune-merged-branches",
     "kb-disallow-master-commits": "bin/disallow-master-commits"
