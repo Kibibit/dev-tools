@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prune Merged Branches should do nothing if no merged branches found 1`] = `"PROJECT IS CLEAN! WELL DONE!"`;
+
+exports[`Prune Merged Branches should move to another branch if needed 1`] = `
+"╔═════════════════════╤════════════════════════════╤══════════════════════╗
+║ Branch Name         │ Origin Branch Name         │ Origin Branch Status ║
+╟─────────────────────┼────────────────────────────┼──────────────────────╢
+║ release/fix-release │ origin/release/fix-release │ GONE                 ║
+╚═════════════════════╧════════════════════════════╧══════════════════════╝
+"
+`;
+
+exports[`Prune Merged Branches should move to another branch if needed 2`] = `"trying to delete checkedout branch release/fix-release. moving to main"`;
+
+exports[`Prune Merged Branches should print branches that are gone 1`] = `
+"╔══════════════════════════╤═════════════════════════════════╤══════════════════════╗
+║ Branch Name              │ Origin Branch Name              │ Origin Branch Status ║
+╟──────────────────────────┼─────────────────────────────────┼──────────────────────╢
+║ release/fix-release      │ origin/release/fix-release      │ GONE                 ║
+╟──────────────────────────┼─────────────────────────────────┼──────────────────────╢
+║ release/new-main-release │ origin/release/new-main-release │ GONE                 ║
+╚══════════════════════════╧═════════════════════════════════╧══════════════════════╝
+"
+`;

@@ -22,7 +22,7 @@ const chars = {
   , 'right': '║', 'right-mid': '╢', 'middle': '│'
 };
 
-(async () => {
+export async function pruneMergedBranches() {
   try {
     await git.fetch(['-p']); // prune? is it necassery?
     const branchSummaryResult = await git.branch(['-vv']);
@@ -43,6 +43,7 @@ const chars = {
             item.remoteName = remoteBranchName;
           }
         })
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .filter((item) => (item as any).isMerged)
         .value();
     const branchNames = chain(localBranchesWithGoneRemotes).map('name').value();
@@ -50,6 +51,7 @@ const chars = {
     if (!branchNames.length) {
       console.log('PROJECT IS CLEAN! WELL DONE!');
       process.exit(0);
+      return;
     }
 
     // interaction!
@@ -107,8 +109,10 @@ const chars = {
         ]);
 
       await moveToAnotherBranchIfNeeded(branchSummaryResult, branchNames);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const deleteBranchPromises: Promise<any>[] = answers.pruneBranches
         .map((branchName: string) => git.deleteLocalBranch(branchName, true));
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const result: any = await Promise.all(deleteBranchPromises);
       console.log('DONE');
       console.log(result);
@@ -120,8 +124,9 @@ const chars = {
   } catch (err) {
     console.error(err);
     process.exit(1);
+    return;
   }
-})();
+}
 
 async function moveToAnotherBranchIfNeeded(
   branchSummaryResult: BranchSummary,

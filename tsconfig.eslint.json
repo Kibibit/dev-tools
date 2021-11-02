@@ -10,22 +10,11 @@
     "target": "es2017",
     "sourceMap": true,
     "esModuleInterop": true,
-    "outDir": "./lib",
     "baseUrl": "./",
     "paths": {
     },
     "incremental": true,
     "skipLibCheck": true
   },
-  "exclude": [
-    "node_modules",
-    "test",
-    "dist",
-    "lib",
-    "examples",
-    "**/*spec.ts",
-    "**/*mock.ts",
-    "jest.config.js",
-    "jest.setup.ts"
-  ]
+  "exclude": [ "node_modules", "test", "dist", "lib" ]
 }
