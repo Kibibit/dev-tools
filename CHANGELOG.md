@@ -1,5 +1,12 @@
 achievibit changelog
 
+# [1.0.0-beta.3](https://github.com/Kibibit/dev-tools/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2021-11-02)
+
+
+### Features
+
+* **tests:** start covering with tests ([b9a9041](https://github.com/Kibibit/dev-tools/commit/b9a90419c4e391d2fde8d783133e769868ead1de))
+
 # [1.0.0-beta.2](https://github.com/Kibibit/dev-tools/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2021-11-01)
 
 
