@@ -1,24 +1,20 @@
 import simpleGit from 'simple-git/promise';
 
+import { checkIsMainBranchCheckedOut, getMainBranch } from './main-branch';
+
 const git = simpleGit();
 
-(async () => {
+export async function disallowMainBranchesCommits() {
   try {
     const branchSummaryResult = await git.branch(['-vv']);
-    const mainBranch =
-      branchSummaryResult.branches.master ||
-      branchSummaryResult.branches.main ||
-      branchSummaryResult.branches.develop ||
-      branchSummaryResult.branches.dev ||
-      branchSummaryResult.branches.staging ||
-      branchSummaryResult.branches.next ||
-      branchSummaryResult.branches.beta ||
-      branchSummaryResult.branches.alpha;
+    const mainBranch = getMainBranch(branchSummaryResult);
+    const isMainBranchCheckedOut =
+      checkIsMainBranchCheckedOut(branchSummaryResult);
 
-    if (mainBranch.current === true) {
-      console.info([
+    if (isMainBranchCheckedOut) {
+      console.log([
         'Should not commit directly to ',
-        `${ mainBranch.name } when working locally`
+        `${ isMainBranchCheckedOut } branch when working locally`
       ].join(''));
       process.exit(1);
     }
@@ -27,4 +23,4 @@ const git = simpleGit();
     console.error(err);
     process.exit(1);
   }
-})();
+}

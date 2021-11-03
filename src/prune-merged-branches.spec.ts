@@ -23,15 +23,42 @@ describe('Prune Merged Branches', () => {
   });
 
   it('should print branches that are gone', async () => {
+    // restoreConsole();
     await pruneMergedBranches();
-    expect(console.log).toHaveBeenCalledTimes(1);
+    expect(console.log).toHaveBeenCalledTimes(3);
     expect(strip((console.log as jest.Mock).mock.calls[0][0]))
+      .toMatchSnapshot();
+    expect(strip((console.log as jest.Mock).mock.calls[1][0]))
+      .toMatchSnapshot();
+    expect(strip((console.log as jest.Mock).mock.calls[2][0]))
+      .toMatchSnapshot();
+  });
+
+  it('should print branches failed to delete', async () => {
+    // restoreConsole();
+    (simpleGit as any).deleteReturnObj = {
+      all: [
+        {
+          branch: 'release/fix-release',
+          success: true
+        },
+        {
+          branch: 'main',
+          success: false
+        }
+      ]
+    };
+    await pruneMergedBranches();
+    expect(console.log).toHaveBeenCalledTimes(4);
+    expect(strip((console.log as jest.Mock).mock.calls[2][0]))
+      .toMatchSnapshot();
+    expect(strip((console.log as jest.Mock).mock.calls[3][0]))
       .toMatchSnapshot();
   });
 
   it('should do nothing if no merged branches found', async () => {
     (simpleGit as any).branchReturnObj = {
-      all: [ 'main' ],
+      all: ['main'],
       branches: {
         main: {
           current: false,
@@ -52,7 +79,7 @@ describe('Prune Merged Branches', () => {
   it('should move to another branch if needed', async () => {
     // restoreConsole();
     (simpleGit as any).branchReturnObj = {
-      all: [ 'main' ],
+      all: ['main'],
       branches: {
         main: {
           current: false,

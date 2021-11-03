@@ -13,6 +13,10 @@ exports[`Prune Merged Branches should move to another branch if needed 1`] = `
 
 exports[`Prune Merged Branches should move to another branch if needed 2`] = `"trying to delete checkedout branch release/fix-release. moving to main"`;
 
+exports[`Prune Merged Branches should print branches failed to delete 1`] = `"release/fix-release: DELETED"`;
+
+exports[`Prune Merged Branches should print branches failed to delete 2`] = `"main: FAILED"`;
+
 exports[`Prune Merged Branches should print branches that are gone 1`] = `
 "╔══════════════════════════╤═════════════════════════════════╤══════════════════════╗
 ║ Branch Name              │ Origin Branch Name              │ Origin Branch Status ║
@@ -23,3 +27,7 @@ exports[`Prune Merged Branches should print branches that are gone 1`] = `
 ╚══════════════════════════╧═════════════════════════════════╧══════════════════════╝
 "
 `;
+
+exports[`Prune Merged Branches should print branches that are gone 2`] = `"DONE"`;
+
+exports[`Prune Merged Branches should print branches that are gone 3`] = `"release/fix-release: DELETED"`;

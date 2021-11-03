@@ -4,16 +4,14 @@ import { chain,trim } from 'lodash';
 import { BranchSummaryBranch } from 'simple-git';
 import simpleGit, { BranchSummary } from 'simple-git/promise';
 
+import { MAIN_BRANCHES } from './main-branch';
+
 interface IExtraData { isMerged?: boolean; remoteName?: string }
 
 type BranchWithExtras = BranchSummaryBranch & IExtraData;
 
 const git = simpleGit();
 const remoteInfoRegex = /^\[(.*?)\]\s/g;
-const MAIN_BRANCHES = [
-  'master',
-  'main'
-];
 
 const chars = {
   'top': '═', 'top-mid': '╤', 'top-left': '╔', 'top-right': '╗'
@@ -90,7 +88,8 @@ export async function pruneMergedBranches() {
       console.log('DONE');
       chain(result.all)
         .map((item) => getStatusString(item))
-        .forEach((item) => console.log(item));
+        .forEach((item) => console.log(item))
+        .value();
       return;
     }
 

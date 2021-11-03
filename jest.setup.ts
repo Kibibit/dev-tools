@@ -58,18 +58,34 @@ jest.mock('simple-git/promise', () => {
     current: 'feature/improve-things',
     detached: false
   };
+
+  const DELETED_BRANCHES = {
+    all: [{
+      branch: 'release/fix-release',
+      success: true
+    }]
+  };
+
   const simplePromiseBranchMock = jest.fn()
     .mockImplementation(() => {
       return Promise.resolve(simplePromise.branchReturnObj);
     });
+    const simpleDeleteLocalBranchesMock = jest.fn()
+    .mockImplementation(() => {
+      return Promise.resolve(simplePromise.deleteReturnObj);
+    });
   const simplePromise = () => ({
     branch: simplePromiseBranchMock,
+    deleteLocalBranches: simpleDeleteLocalBranchesMock,
     fetch: () => jest.fn().mockImplementation(() => console.log('fetched!'))    
   });
   simplePromise.branchReturnObj = DEFAULT_RETURN;
+  simplePromise.deleteReturnObj = DELETED_BRANCHES;
   simplePromise.clearMocks = () => {
     simplePromise.branchReturnObj = DEFAULT_RETURN;
+    simplePromise.deleteReturnObj = DELETED_BRANCHES;
     simplePromiseBranchMock.mockClear();
+    simpleDeleteLocalBranchesMock.mockClear();
   };
 
   return simplePromise;
