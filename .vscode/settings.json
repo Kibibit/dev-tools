@@ -19,6 +19,8 @@
     ]
   },
   "svg.preview.background": "black",
+  "markdown.preview.scrollEditorWithPreview": false,
+  "markdown.preview.scrollPreviewWithEditor": false,
   "todotodohighlight.isEnable": true,
   "todohighlight.keywordsPattern": "TODO(@\\w+?)?:",
   "todohighlight.defaultStyle": {

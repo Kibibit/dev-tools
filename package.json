@@ -18,6 +18,7 @@
     "cli"
   ],
   "scripts": {
+    "disallow-master-commits": "bin/disallow-master-commits",
     "prebuild": "rimraf lib",
     "build": "tsc",
     "semantic-release:setup": "semantic-release-cli setup",

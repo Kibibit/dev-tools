@@ -30,12 +30,37 @@
 
 ## Usage
 
+Install globally
+```bash
+npm install --global @kibibit/dev-tools
 ```
-$> npm install --global @kibibit/dev-tools
+or locally
+```bash
+npm install --save-dev @kibibit/dev-tools
 ```
 Then, go into a git project folder and run
+```bash
+kb-prune-merged
 ```
-run
+to prune local branches that merged and deleted on cloud
+
+Or use this command in your git hooks to prevent accidental commits to protected branches:
+```bash
+kb-disallow-master-commits
+```
+for example, [husky](https://github.com/typicode/husky)
+
+### package.json
+```json
+/* ... */
+"scripts": {
+  "disallow-master-commits": "kb-disallow-master-commits"
+}
+```
+Then, add it as a pre-commit git hook:
+```bash
+npx husky add .husky/pre-commit "npm run disallow-master-commits"
+git add .husky/pre-commit
 ```
 
 <!-- ## Features
