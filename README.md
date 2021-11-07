@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/Kibibit/dev-tools" target="blank"><img src="https://github.com/kibibit.png" width="150" ></a>
+  <a href="https://github.com/Kibibit/dev-tools" target="blank"><img src="logo.png" width="150" ></a>
   <h2 align="center">
     @kibibit/dev-tools
   </h2>
@@ -67,6 +67,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
+
+<div>Logo made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+<br>
 
 ## Stay in touch
 
