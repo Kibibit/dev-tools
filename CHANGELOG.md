@@ -1,5 +1,14 @@
 achievibit changelog
 
+# [1.1.0](https://github.com/Kibibit/dev-tools/compare/v1.0.1...v1.1.0) (2021-11-12)
+
+
+### Features
+
+* **scripts:** can accept a list of branches to disallow ([7e88c49](https://github.com/Kibibit/dev-tools/commit/7e88c4910e127bd22672737a69edeed0cabfac0a))
+* **module:** change code to run as module ([1219701](https://github.com/Kibibit/dev-tools/commit/121970194408e3215679167514767f6cd2294b23))
+* **tests:** start covering with tests ([b9a9041](https://github.com/Kibibit/dev-tools/commit/b9a90419c4e391d2fde8d783133e769868ead1de))
+
 ## [1.0.1](https://github.com/Kibibit/dev-tools/compare/v1.0.0...v1.0.1) (2021-11-01)
 
 
