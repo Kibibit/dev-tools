@@ -4,16 +4,14 @@ import { chain,trim } from 'lodash';
 import { BranchSummaryBranch } from 'simple-git';
 import simpleGit, { BranchSummary } from 'simple-git/promise';
 
+import { MAIN_BRANCHES } from './main-branch';
+
 interface IExtraData { isMerged?: boolean; remoteName?: string }
 
 type BranchWithExtras = BranchSummaryBranch & IExtraData;
 
 const git = simpleGit();
 const remoteInfoRegex = /^\[(.*?)\]\s/g;
-const MAIN_BRANCHES = [
-  'master',
-  'main'
-];
 
 const chars = {
   'top': '═', 'top-mid': '╤', 'top-left': '╔', 'top-right': '╗'
@@ -22,7 +20,7 @@ const chars = {
   , 'right': '║', 'right-mid': '╢', 'middle': '│'
 };
 
-(async () => {
+export async function pruneMergedBranches() {
   try {
     await git.fetch(['-p']); // prune? is it necassery?
     const branchSummaryResult = await git.branch(['-vv']);
@@ -43,6 +41,7 @@ const chars = {
             item.remoteName = remoteBranchName;
           }
         })
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .filter((item) => (item as any).isMerged)
         .value();
     const branchNames = chain(localBranchesWithGoneRemotes).map('name').value();
@@ -50,6 +49,7 @@ const chars = {
     if (!branchNames.length) {
       console.log('PROJECT IS CLEAN! WELL DONE!');
       process.exit(0);
+      return;
     }
 
     // interaction!
@@ -88,7 +88,8 @@ const chars = {
       console.log('DONE');
       chain(result.all)
         .map((item) => getStatusString(item))
-        .forEach((item) => console.log(item));
+        .forEach((item) => console.log(item))
+        .value();
       return;
     }
 
@@ -107,8 +108,10 @@ const chars = {
         ]);
 
       await moveToAnotherBranchIfNeeded(branchSummaryResult, branchNames);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const deleteBranchPromises: Promise<any>[] = answers.pruneBranches
         .map((branchName: string) => git.deleteLocalBranch(branchName, true));
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const result: any = await Promise.all(deleteBranchPromises);
       console.log('DONE');
       console.log(result);
@@ -120,8 +123,9 @@ const chars = {
   } catch (err) {
     console.error(err);
     process.exit(1);
+    return;
   }
-})();
+}
 
 async function moveToAnotherBranchIfNeeded(
   branchSummaryResult: BranchSummary,

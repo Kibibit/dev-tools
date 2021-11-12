@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Disallow Master Branch Commits should DISALLOW commits if on some main branch main branch: alpha 1`] = `"Should not commit directly to alpha branch when working locally"`;
+
+exports[`Disallow Master Branch Commits should DISALLOW commits if on some main branch main branch: beta 1`] = `"Should not commit directly to beta branch when working locally"`;
+
+exports[`Disallow Master Branch Commits should DISALLOW commits if on some main branch main branch: dev 1`] = `"Should not commit directly to dev branch when working locally"`;
+
+exports[`Disallow Master Branch Commits should DISALLOW commits if on some main branch main branch: develop 1`] = `"Should not commit directly to develop branch when working locally"`;
+
+exports[`Disallow Master Branch Commits should DISALLOW commits if on some main branch main branch: main 1`] = `"Should not commit directly to main branch when working locally"`;
+
+exports[`Disallow Master Branch Commits should DISALLOW commits if on some main branch main branch: master 1`] = `"Should not commit directly to master branch when working locally"`;
+
+exports[`Disallow Master Branch Commits should DISALLOW commits if on some main branch main branch: next 1`] = `"Should not commit directly to next branch when working locally"`;
+
+exports[`Disallow Master Branch Commits should DISALLOW commits if on some main branch main branch: staging 1`] = `"Should not commit directly to staging branch when working locally"`;

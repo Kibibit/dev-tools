@@ -1,4 +1,7 @@
 lib
+test-results
+
+.DS_Store
 
 # Logs
 logs

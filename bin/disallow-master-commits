@@ -1,3 +1,7 @@
 #!/usr/bin/env node
+const { disallowMainBranchesCommits } = require('../lib/disallow-master-commits');
+const yargs = require('yargs');
+const { hideBin } = require('yargs/helpers');
 
-require('../lib/disallow-master-commits');
+const argv = yargs(hideBin(process.argv)).argv;
+disallowMainBranchesCommits(argv._);
