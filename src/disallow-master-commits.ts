@@ -1,15 +1,16 @@
+import { isEmpty } from 'lodash';
 import simpleGit from 'simple-git/promise';
 
-import { checkIsMainBranchCheckedOut, getMainBranch } from './main-branch';
+import { checkIsMainBranchCheckedOut } from './main-branch';
 
 const git = simpleGit();
 
-export async function disallowMainBranchesCommits() {
+export async function disallowMainBranchesCommits(mainBranchList?: string[]) {
   try {
+    mainBranchList = isEmpty(mainBranchList) ? undefined : mainBranchList;
     const branchSummaryResult = await git.branch(['-vv']);
-    const mainBranch = getMainBranch(branchSummaryResult);
     const isMainBranchCheckedOut =
-      checkIsMainBranchCheckedOut(branchSummaryResult);
+      checkIsMainBranchCheckedOut(branchSummaryResult, mainBranchList);
 
     if (isMainBranchCheckedOut) {
       console.log([
