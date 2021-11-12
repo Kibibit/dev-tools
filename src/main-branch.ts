@@ -1,3 +1,6 @@
+import { BranchSummary } from 'simple-git/promise';
+
+
 export const MAIN_BRANCHES = [
   'master',
   'main',
@@ -9,17 +12,23 @@ export const MAIN_BRANCHES = [
   'alpha'
 ];
 
-export function getMainBranch(branchSummaryResult) {
-  for (const branchName of MAIN_BRANCHES) {
+export function getMainBranch(
+  branchSummaryResult: BranchSummary,
+  mainBranchList = MAIN_BRANCHES
+) {
+  for (const branchName of mainBranchList) {
     if (branchSummaryResult[branchName]) {
       return branchSummaryResult[branchName];
     }
   }
 }
 
-export function checkIsMainBranchCheckedOut(branchSummaryResult) {
+export function checkIsMainBranchCheckedOut(
+  branchSummaryResult: BranchSummary,
+  mainBranchList = MAIN_BRANCHES
+) {
   const currentCheckedoutBranch = branchSummaryResult.current;
-  return MAIN_BRANCHES.includes(currentCheckedoutBranch) ?
+  return mainBranchList.includes(currentCheckedoutBranch) ?
     currentCheckedoutBranch :
     false;
 }
