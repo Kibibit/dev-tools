@@ -1,5 +1,12 @@
 achievibit changelog
 
+## [1.1.1](https://github.com/Kibibit/dev-tools/compare/v1.1.0...v1.1.1) (2022-04-04)
+
+
+### Bug Fixes
+
+* **security:** run security audit and fix problems ([9290f86](https://github.com/Kibibit/dev-tools/commit/9290f86bd5293dbe369cfded3046b20ef459b510))
+
 # [1.1.0](https://github.com/Kibibit/dev-tools/compare/v1.0.1...v1.1.0) (2021-11-12)
 
 
