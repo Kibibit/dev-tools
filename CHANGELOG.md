@@ -1,5 +1,12 @@
 achievibit changelog
 
+# [1.0.0-beta.5](https://github.com/Kibibit/dev-tools/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2022-04-04)
+
+
+### Bug Fixes
+
+* **security:** run security audit and fix problems ([9290f86](https://github.com/Kibibit/dev-tools/commit/9290f86bd5293dbe369cfded3046b20ef459b510))
+
 # [1.0.0-beta.4](https://github.com/Kibibit/dev-tools/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2021-11-12)
 
 
